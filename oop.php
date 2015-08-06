@@ -2,8 +2,12 @@
 class Animal {
     public $name;
     public $age = 0;
-    function sayHello () {
-        echo "Hello";
+    function sayHello ($word) {
+        echo $this->name . ' сказал ' . $word;
+        $this->drawBr();
+    }
+    function drawBr () {
+        echo '<br />';
     }
 }
 
@@ -12,6 +16,8 @@ $dog = new Animal;
 
 $cat->name = 'Мурзик';
 $dog->name = 'Тузик';
+$cat->sayHello('Мяу');
+$dog->sayHello('Гав');
 
-$cat->sayHello();
+//$cat->sayHello();
 
