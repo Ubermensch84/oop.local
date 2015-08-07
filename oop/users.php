@@ -36,12 +36,17 @@ $user4 -> showInfo();
 
 class SuperUser extends User {
     public $role;
+    function __construct ($n, $l, $p, $r) {
+        parent::__construct ($n, $l, $p);
+        $this->role = $r;
+    }
+    function showInfo () {
+        parent::showInfo();
+        echo '<br>Role: ' . $this -> role;
+    }
 }
 
-$user = new SuperUser('Vasya Pupkin', 'vasya', 'root');
-$user -> role = 'admin';
-
+$user = new SuperUser('Vasya Pupkin', 'vasya', 'root', 'admin');
 $user -> showInfo();
-echo '<br>Role: ' . $user -> role;
 
 ?>
