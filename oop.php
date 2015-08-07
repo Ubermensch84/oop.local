@@ -9,11 +9,14 @@ class Animal {
     function drawBr () {
         echo '<br />';
     }
+
+    function __construct () {
+        echo 'Object created<br>';
+    }
 }
 
 $cat = new Animal;
 $dog = new Animal;
-
 $cat->name = 'Мурзик';
 $dog->name = 'Тузик';
 $cat->sayHello('Мяу');
