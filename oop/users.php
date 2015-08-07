@@ -16,14 +16,32 @@
             echo '<br>Login: ' . $this -> login;
             echo '<br>Password: ' . $this -> password;
         }
+
+        function __clone () {
+            $this -> name = 'Guest';
+            $this -> login = 'guest';
+            $this -> password = '0000';
+        }
     }
+
 $user1 = new User ('John Smith', 'john', '1234');
 $user1 -> showInfo();
-
 $user2 = new User ('Mike Dow', 'mike', '4567');
 $user2 -> showInfo();
-
 $user3 = new User ( 'Ivan Petrov', 'ivan', '8912');
 $user3 -> showInfo();
+$user4 = clone $user1;
+$user4 -> showInfo();
+
+
+class SuperUser extends User {
+    public $role;
+}
+
+$user = new SuperUser('Vasya Pupkin', 'vasya', 'root');
+$user -> role = 'admin';
+
+$user -> showInfo();
+echo '<br>Role: ' . $user -> role;
 
 ?>
